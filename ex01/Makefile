@@ -6,7 +6,7 @@
 #    By: gpinilla <gpinilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/14 17:32:25 by gpinilla          #+#    #+#              #
-#    Updated: 2024/10/22 21:19:27 by gpinilla         ###   ########.fr        #
+#    Updated: 2024/10/24 18:23:43 by gpinilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,8 +47,8 @@ CC              = c++
 FLAGS           = -g -Wall -Werror -Wextra -std=c++98
 RM              = rm -rf
 
-HEADERS			= Animal.hpp  Dog.hpp  Cat.Hpp  WrongAnimal.hpp  WrongCat.hpp
-SRC             = Animal.cpp  Dog.cpp  Cat.cpp  WrongAnimal.cpp  WrongCat.cpp  main.cpp
+HEADERS			= Animal.hpp  Dog.hpp  Cat.Hpp  WrongAnimal.hpp  WrongCat.hpp  Brain.hpp
+SRC             = Animal.cpp  Dog.cpp  Cat.cpp  WrongAnimal.cpp  WrongCat.cpp  Brain.cpp  main.cpp
 DIR_OBJ         = temp/
 OBJ             = $(SRC:src/%.c=$(DIR_OBJ)%.o)
 

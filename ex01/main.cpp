@@ -6,40 +6,37 @@
 /*   By: gpinilla <gpinilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 21:15:13 by gpinilla          #+#    #+#             */
-/*   Updated: 2024/10/22 21:15:43 by gpinilla         ###   ########.fr       */
+/*   Updated: 2024/10/24 18:21:16 by gpinilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.Hpp"
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
+
 int main() {
-    const Animal* meta = new Animal();
+    // Pruebas básicas con Dog y Cat
     const Animal* dog = new Dog();
     const Animal* cat = new Cat();
 
-    std::cout << dog->getType() << " " << std::endl;
-    std::cout << cat->getType() << " " << std::endl;
-    cat->makeSound();  // Imprime "Meow!"
-    dog->makeSound();  // Imprime "Woof woof!"
-    meta->makeSound(); // Imprime "Animal makes a generic sound"
+    dog->makeSound();
+    cat->makeSound();
 
-    delete meta;
-    delete dog;
-    delete cat;
+    delete dog;  // Llama a los destructores en cadena
+    delete cat;  // Llama a los destructores en cadena
 
-    const WrongAnimal* wrongMeta = new WrongAnimal();
-    const WrongAnimal* wrongCat = new WrongCat();
+    // Prueba de copias profundas
+    Dog originalDog;
+    originalDog.makeSound();
+    originalDog.getBrain().setIdea(0, "I love bones!");
 
-    std::cout << wrongCat->getType() << " " << std::endl;
-    wrongCat->makeSound();  // Imprime "Some generic WrongAnimal sound"
-    wrongMeta->makeSound(); // Imprime "Some generic WrongAnimal sound"
-
-    delete wrongMeta;
-    delete wrongCat;
+    Dog copyDog = originalDog;  // Constructor de copia
+    copyDog.makeSound();
+    std::cout << "Original Dog's idea: " << originalDog.getBrain().getIdea(0) << std::endl;
+    std::cout << "Copied Dog's idea: " << copyDog.getBrain().getIdea(0) << std::endl;
 
     return 0;
 }
+

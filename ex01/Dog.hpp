@@ -6,7 +6,7 @@
 /*   By: gpinilla <gpinilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 20:58:04 by gpinilla          #+#    #+#             */
-/*   Updated: 2024/10/22 21:02:52 by gpinilla         ###   ########.fr       */
+/*   Updated: 2024/10/24 18:23:10 by gpinilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 # define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal {
+private:
+	Brain *_brain;
 
 public:
 	Dog();
@@ -23,6 +26,7 @@ public:
 	Dog& operator=(const Dog& other);
 	~Dog();
 
+	Brain& getBrain() const;
 	void makeSound() const;
 };
 
