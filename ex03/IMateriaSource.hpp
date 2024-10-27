@@ -6,14 +6,16 @@
 /*   By: gpinilla <gpinilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 13:37:25 by gpinilla          #+#    #+#             */
-/*   Updated: 2024/10/27 14:12:34 by gpinilla         ###   ########.fr       */
+/*   Updated: 2024/10/27 15:40:14 by gpinilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HPP_IMATERIASOURCE
 #define HPP_IMATERIASOURCE
 
-#include "AMateria.hpp"
+#include <string>
+
+class AMateria; 
 
 class IMateriaSource
 {

@@ -6,7 +6,7 @@
 /*   By: gpinilla <gpinilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 13:43:25 by gpinilla          #+#    #+#             */
-/*   Updated: 2024/10/27 14:07:31 by gpinilla         ###   ########.fr       */
+/*   Updated: 2024/10/27 15:11:52 by gpinilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,54 @@
 
 Character::Character() : name("unnamed") {
 	for (int i = 0; i < 4; i++)
-            inventory[i] = nullptr;
+            inventory[i] = NULL;
 }
 
-Character::Character(const std::string name) : name(name) {
+Character::Character(const std::string& name) : name(name) {
 	for (int i = 0; i < 4; i++)
-            inventory[i] = nullptr;
+            inventory[i] = NULL;
 }
 
 Character::Character(const Character& other) {
-	this* = other;
+	*this = other;
 }
 
 Character& Character::operator=(const Character& other) {
-	this.name = other.name;
-	for(int i; i = 0; i++)
-		this.inventory[i] = new AMateria(*other.inventory[i]);
+	if (this != &other){
+		this->name = other.name;
+		for(int i = 0; i < 4; i++) {
+			if(inventory[i] != NULL) 
+			{
+				delete this->inventory[i];
+				inventory[i] = NULL;
+			}
+			if(other.inventory[i] != NULL)
+				this->inventory[i] = other.inventory[i]->clone();
+		}
+	}
+	return *this;
 }
 
 Character::~Character() {
-	for(int i = 0; i < 4; i++)
-		delete inventory[i];
+	for(int i = 0; i < 4; i++){
+		if(inventory[i] != NULL) 
+		{
+			delete this->inventory[i];
+			inventory[i] = NULL;
+		}
+	}
 }
 
-const std::string &getName() const {
-	return name;
+const std::string& Character::getName() const {
+	return this->name;
 }
 
 void Character::equip(AMateria *m) {
-	for(int i; i = 0; i++)
+	for(int i = 0; i < 4; i++)
 	{
 		if (!inventory[i])
 		{
-			invetory[i] = m;
+			inventory[i] = m;
 			break;
 		}
 	}
@@ -54,7 +69,7 @@ void Character::equip(AMateria *m) {
 
 void Character::unequip(int idx) {
 	if(idx >= 0 && idx < 4)
-		this.inventory[idx] = NULL;
+		this->inventory[idx] = NULL;
 }
 
 void Character::use(int idx, ICharacter& target) {

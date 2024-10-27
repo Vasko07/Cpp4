@@ -6,7 +6,7 @@
 /*   By: gpinilla <gpinilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 13:09:49 by gpinilla          #+#    #+#             */
-/*   Updated: 2024/10/27 14:11:52 by gpinilla         ###   ########.fr       */
+/*   Updated: 2024/10/27 15:22:05 by gpinilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define HPP_ICE
 
 #include "AMateria.hpp"
+#include <iostream>
 
 class  Ice : public AMateria {
 

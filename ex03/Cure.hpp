@@ -6,7 +6,7 @@
 /*   By: gpinilla <gpinilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 13:32:29 by gpinilla          #+#    #+#             */
-/*   Updated: 2024/10/27 14:11:25 by gpinilla         ###   ########.fr       */
+/*   Updated: 2024/10/27 15:12:33 by gpinilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define HPP_CURE
 
 #include "AMateria.hpp"
+#include <iostream>
+
 
 class  Cure : public AMateria {
 
